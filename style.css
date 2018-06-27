@@ -1,0 +1,20 @@
+.card-header {
+    background-color: #32689e;
+}
+
+p {
+    color: white;
+}
+
+#submitButton {
+    background-color: #32689e;
+    color: white;
+}
+
+.display-4,.lead {
+    font-family: cursive; 
+}
+
+.Schedule {
+    color: white;
+}
