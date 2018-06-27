@@ -4,11 +4,13 @@
 
 p {
     color: white;
+    font-family: cursive;
 }
 
 #submitButton {
     background-color: #32689e;
     color: white;
+    font-family: cursive;
 }
 
 .display-4,.lead {
@@ -17,4 +19,6 @@ p {
 
 .Schedule {
     color: white;
+    font-family: cursive;
 }
+
