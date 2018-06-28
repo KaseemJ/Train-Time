@@ -5,26 +5,32 @@ var config = {
     projectId: "cbc-june2018",
     storageBucket: "cbc-june2018.appspot.com",
     messagingSenderId: "81588973328"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 
-  $("#click-button").on("click", function() {
+$(".submitButton").on("click", function (e) {
+    e.preventDefault();
     alert("I've been clicked");
 
-name = $("#Train-name").val().trim().
-  destination = $("#Train-destination").val().trim().
-    firstTrain = $("#First-train").val().trim().
-        frequency = $("#Frequency").val().trim().
+    var name = $("#Train-name").val().trim();
+    var destination = $("#Train-destination").val().trim();
+    var firstTrain = $("#First-train").val().trim();
+    var frequency = $("#Frequency").val().trim();
 
 
-// Code for handling the push
-database.ref().push({
-    name: Train-name,
-    destination: Train-destination,
-    firstTrain: First-train,
-    frequency: Frequency,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+    // Code for handling the push
+    database.ref().push({
+        Train: Train-name,
+        destination: Train-destination,
+        firstTrain: First-train,
+        frequency: Frequency,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
 });
+
+database.ref().on("child_added", function(snapshot){
+    console.log(snapshot.val());
+    $("table tbody").append("<tr><td>"+snapshot.val().Train+"</td><td>"+snapshot.val().destination+"</td><td>"+snapshot.val().firstTrain+"</td><td>"+snapshot.val().frequency+"</td><tr>");
 });
