@@ -22,15 +22,15 @@ $(".submitButton").on("click", function (e) {
 
     // Code for handling the push
     database.ref().push({
-        Train: Train-name,
-        destination: Train-destination,
-        firstTrain: First-train,
-        frequency: Frequency,
+        name: name,
+        destination: destination,
+        firstTrain: firstTrain,
+        frequency: frequency,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 });
 
 database.ref().on("child_added", function(snapshot){
     console.log(snapshot.val());
-    $("table tbody").append("<tr><td>"+snapshot.val().Train+"</td><td>"+snapshot.val().destination+"</td><td>"+snapshot.val().firstTrain+"</td><td>"+snapshot.val().frequency+"</td><tr>");
+    $("table tbody").append("<tr><td>"+snapshot.val().name+"</td><td>"+snapshot.val().destination+"</td><td>"+snapshot.val().firstTrain+"</td><td>"+snapshot.val().frequency+"</td><tr>");
 });
